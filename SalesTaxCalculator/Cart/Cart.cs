@@ -21,7 +21,7 @@ namespace SalesTaxCalculator.Cart
             get { return CartItems.Sum(p => p.TotalTax); }
         }
 
-        public Cart(TaxCalculator taxCalculator,RoundOffPolicy roundOffPolicy)
+        public Cart(TaxCalculator taxCalculator, RoundOffPolicy roundOffPolicy)
         {
             _taxCalculator = taxCalculator;
             _roundOffPolicy = roundOffPolicy;
@@ -32,9 +32,21 @@ namespace SalesTaxCalculator.Cart
         {
             CartItems.Add(cartItem);
             var tax = _taxCalculator.Calculate(cartItem);
-            cartItem.TotalTax = _roundOffPolicy.RoundOffFor(tax * cartItem.Quantity);
-            cartItem.TotalCost = _roundOffPolicy.RoundOffFor(cartItem.Quantity * cartItem.Item.Price) + (tax * cartItem.Quantity);
+            SetTotalCost(cartItem, tax);
+            SetTotalTax(cartItem, tax);
         }
+
+        private void SetTotalCost(CartItem cartItem, decimal tax)
+        {
+            cartItem.TotalCost =
+                _roundOffPolicy.RoundOffFor(cartItem.Quantity * cartItem.Item.Price) + (tax * cartItem.Quantity);
+        }
+
+        private void SetTotalTax(CartItem cartItem, decimal tax)
+        {
+            cartItem.TotalTax = _roundOffPolicy.RoundOffFor(tax * cartItem.Quantity);
+        }
+
 
         public void Remove(CartItem cartItem)
         {

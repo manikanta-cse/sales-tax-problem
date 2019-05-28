@@ -1,5 +1,6 @@
 using SalesTaxCalculator.Cart;
 using System;
+using System.Linq;
 using NSubstitute;
 using SalesTaxCalculator.Policy;
 using SalesTaxCalculator.Product;
@@ -36,6 +37,27 @@ namespace SalesTaxCalculator.Tests
             _taxCalculator.Received().Calculate(cartItem);
             _roundOffPolicy.Received(2).RoundOffFor(Arg.Any<decimal>());
 
+            Assert.Equal(cartItem,_cart.CartItems.First());
+
         }
+
+        //[Fact]
+        //public void ShouldSetTotalTax()
+        //{
+        //    var cartItem = new CartItem() { Item = new Product.Product() { Category = ProductCategory.Others, IsImported = false, Name = "Cosmetics", Price = 100 } ,Quantity = 1};
+
+        //    //_roundOffPolicy.RoundOffFor(110).Returns(110);
+        //    _taxCalculator.Calculate(cartItem).Returns(10.0m);
+        //    //_roundOffPolicy.RoundOffFor(110).Returns(110);
+        //    //_roundOffPolicy.RoundOffFor(110).Returns(110);
+
+        //    _cart.Add(cartItem);
+
+        //    _taxCalculator.Received().Calculate(cartItem);
+        //   // _roundOffPolicy.Received(2).RoundOffFor(Arg.Any<decimal>());
+
+        //    Assert.Equal(_cart.TotalTax,10);
+
+        //}
     }
 }
