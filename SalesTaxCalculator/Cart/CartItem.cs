@@ -1,4 +1,4 @@
-﻿namespace SalesTaxProblem.Cart
+﻿namespace SalesTaxCalculator.Cart
 {
     public class CartItem
     {

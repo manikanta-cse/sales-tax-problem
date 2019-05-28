@@ -1,7 +1,7 @@
-﻿using SalesTaxProblem.Cart;
-using SalesTaxProblem.Policy;
+﻿using SalesTaxCalculator.Cart;
+using SalesTaxCalculator.Policy;
 
-namespace SalesTaxProblem.Tax
+namespace SalesTaxCalculator.Tax
 {
    public class TaxCalculator
     {
@@ -13,7 +13,7 @@ namespace SalesTaxProblem.Tax
             _policyProvider = policyProvider;
             
         }
-        public decimal Calculate(CartItem cartItem)
+        public virtual decimal Calculate(CartItem cartItem)
         {
             decimal tax=0;
             var applicablePolicies = _policyProvider.Get(cartItem.Item);

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SalesTaxProblem.Policy
+namespace SalesTaxCalculator.Policy
 {
     public class RoundOffPolicy
     {
@@ -9,7 +9,7 @@ namespace SalesTaxProblem.Policy
             get { return 0.05m; }
         }
 
-        public decimal RoundOffFor(decimal total)
+        public virtual decimal RoundOffFor(decimal total)
         {
             return Math.Ceiling(total / Value) * Value;
         }

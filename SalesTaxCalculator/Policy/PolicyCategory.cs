@@ -1,4 +1,4 @@
-﻿namespace SalesTaxProblem.Policy
+﻿namespace SalesTaxCalculator.Policy
 {
     public enum PolicyCategory
     {

@@ -1,4 +1,4 @@
-﻿namespace SalesTaxProblem.Product
+﻿namespace SalesTaxCalculator.Product
 {
     public class Product
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SalesTaxProblem.Policy;
-using SalesTaxProblem.Tax;
+using SalesTaxCalculator.Policy;
+using SalesTaxCalculator.Tax;
 
-namespace SalesTaxProblem.Cart
+namespace SalesTaxCalculator.Cart
 {
     public class Cart
     {

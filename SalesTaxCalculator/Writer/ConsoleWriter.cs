@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SalesTaxProblem.Writer
+namespace SalesTaxCalculator.Writer
 {
     public class ConsoleWriter
     {

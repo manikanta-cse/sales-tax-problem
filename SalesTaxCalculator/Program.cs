@@ -1,11 +1,11 @@
 ﻿using System;
-using SalesTaxProblem.Cart;
-using SalesTaxProblem.Policy;
-using SalesTaxProblem.Product;
-using SalesTaxProblem.Tax;
-using SalesTaxProblem.Writer;
+using SalesTaxCalculator.Cart;
+using SalesTaxCalculator.Policy;
+using SalesTaxCalculator.Product;
+using SalesTaxCalculator.Tax;
+using SalesTaxCalculator.Writer;
 
-namespace SalesTaxProblem
+namespace SalesTaxCalculator
 {
     class Program
     {

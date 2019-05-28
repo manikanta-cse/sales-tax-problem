@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SalesTaxProblem.Product;
+using SalesTaxCalculator.Product;
 
-namespace SalesTaxProblem.Policy
+namespace SalesTaxCalculator.Policy
 {
     public class PolicyProvider
     {
