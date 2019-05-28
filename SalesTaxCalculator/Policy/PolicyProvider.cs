@@ -20,7 +20,7 @@ namespace SalesTaxCalculator.Policy
                     applicablePoclies.Add(new Policy() { TaxRate = 0, Type = PolicyCategory.MedicinesSalesTaxPolicy });
                     break;
                 default:
-                    applicablePoclies.Add(new Policy() { TaxRate = 10.00M, Type = PolicyCategory.NonExemptedSalesTaxPolicy });
+                    applicablePoclies.Add(new Policy() { TaxRate = 10.00m, Type = PolicyCategory.NonExemptedSalesTaxPolicy });
                     break;
             }
 

@@ -6,7 +6,6 @@ namespace SalesTaxCalculator.Tax
    public class TaxCalculator
     {
         private readonly PolicyProvider _policyProvider;
-       
 
         public TaxCalculator(PolicyProvider policyProvider)
         {

@@ -13,7 +13,7 @@ namespace SalesTaxCalculator.Writer
                 Console.WriteLine("Category :" + item.Item.Category);
                 Console.WriteLine("IsImported :" + item.Item.IsImported);
                 Console.WriteLine("Name:" + item.Item.Name);
-                Console.WriteLine("Total Cost: " + item.TotalCost);
+                Console.WriteLine("Total Cost: " + item.TotalPrice);
                 Console.WriteLine("Total Tax: " + item.TotalTax);
                 Console.WriteLine("Quantity : " + item.Quantity);
                 Console.WriteLine("---------------------------");

@@ -13,10 +13,10 @@ namespace SalesTaxCalculator
         {
             var policyProvider = new PolicyProvider();
             var taxCalculator = new TaxCalculator(policyProvider);
-            var roundOffPolicy = new RoundOffPolicy();
+            //var roundOffPolicy = new RoundOffPolicy();
 
 
-            var cart = new Cart.Cart(taxCalculator, roundOffPolicy);
+            var cart = new Cart.Cart(taxCalculator);
 
             cart.Add(new CartItem()
             {
