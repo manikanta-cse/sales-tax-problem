@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using SalesTaxCalculator.Cart;
 using SalesTaxCalculator.Policy;
 using SalesTaxCalculator.Product;
@@ -11,13 +12,9 @@ namespace SalesTaxCalculator
     {
         static void Main(string[] args)
         {
-            var policyProvider = new PolicyProvider();
-            var taxCalculator = new TaxCalculator(policyProvider);
-            //var roundOffPolicy = new RoundOffPolicy();
+            var cart =  CartFactory.Create();
 
-
-            var cart = new Cart.Cart(taxCalculator);
-
+            //input to cart
             cart.Add(new CartItem()
             {
                 Item = new Product.Product { Category = ProductCategory.Food, IsImported = false, Name = "Chocolates", Price = 5 },
@@ -43,13 +40,10 @@ namespace SalesTaxCalculator
             });
 
 
+            cart.Remove(cart.CartItems.First(a => a.Item.Category == ProductCategory.Books));
+
             var consoleWriter = new ConsoleWriter();
             consoleWriter.Write(cart);
-
-
-            //cart.Remove(cart.CartItems.First(a=>a.Item.Category== ProductCategory.Books));
-
-            //new ConsoleWriter().Write(cart);
 
             Console.ReadKey();
 
