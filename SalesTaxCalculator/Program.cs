@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SalesTaxCalculator.Cart;
 using SalesTaxCalculator.Policy;
@@ -14,45 +15,27 @@ namespace SalesTaxCalculator
         {
             var cart =  CartFactory.Create();
 
-            //input to cart
-            cart.Add(new CartItem()
-            {
-                Item = new Product.Product { Category = ProductCategory.Food, IsImported = false, Name = "Chocolates", Price = 5 },
-                Quantity = 1
+            var cartItems = new FileInputParser().Parse("input.txt");
 
-            });
-            cart.Add(new CartItem()
-            {
-                Item = new Product.Product { Category = ProductCategory.Books, IsImported = false, Name = "Clean Coder By Martin", Price = 550 },
-                Quantity = 1,
-
-            });
-            cart.Add(new CartItem()
-            {
-                Item = new Product.Product { Category = ProductCategory.Medicines, IsImported = true, Name = "Tab Ooo", Price = 100 },
-                Quantity = 2
-            });
-
-            cart.Add(new CartItem()
-            {
-                Item = new Product.Product { Category = ProductCategory.Others, IsImported = true, Name = "Perfume", Price = 100.02m },
-                Quantity = 2
-            });
-
-
-            cart.Remove(cart.CartItems.First(a => a.Item.Category == ProductCategory.Books));
+            AddItemsToCart(cartItems, cart);
 
             var consoleWriter = new ConsoleWriter();
             consoleWriter.Write(cart);
 
             Console.ReadKey();
 
-
+            //cart.Remove(cart.CartItems.First(a => a.Item.Category == ProductCategory.Books));
 
 
 
         }
 
-
+        private static void AddItemsToCart(IEnumerable<CartItem> cartItems, Cart.Cart cart)
+        {
+            foreach (var cartItem in cartItems)
+            {
+                cart.Add(cartItem);
+            }
+        }
     }
 }
